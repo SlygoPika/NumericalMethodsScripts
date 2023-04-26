@@ -6,6 +6,6 @@ def eulerMethod(function, initialCondition, step, finalEstimate):
     t = initialCondition[0]
     while t < finalEstimate:
         y += step * function(y, t)
-        # print(y)
+        print(y)
         t += step
     return y

@@ -18,6 +18,8 @@ def GaussElimPALU(A, res):
     print("x:")
     pprint.pprint(x)
 
+    return x
+
 
 def GaussElimALU(A, res):
     L, U = ALU(A)
@@ -29,3 +31,5 @@ def GaussElimALU(A, res):
     x = scipy.linalg.solve(U, d)
     print("x:")
     pprint.pprint(x)
+
+    return x

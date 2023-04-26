@@ -5,16 +5,16 @@ from error import eulerError, RKTrapezoidError, RKMidpointError, RK4ClassicError
 from RungeKutta import RKMidpoint, RKTrapezoid, RK4Classic
 
 
-step1 = 1e-3
+step1 = 0.1
 step2 = 0.5
-initialCondition = (0, 1)
-finalEstimate = 1
+initialCondition = (-8.09, -2.79)
+finalEstimate = -7.09
 
 
 def function(y, t):
-    return 2 * (t + 1) * y
+    return 5.96 * cos(t)
 
 
-print(RKTrapezoidError(function, initialCondition, step1 * 2, step1, finalEstimate))
+print(eulerMethod(function, initialCondition, step1, finalEstimate))
 
 # eulerMethod(function, initialCondition, step, finalEstimate)
