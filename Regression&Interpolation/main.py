@@ -4,20 +4,26 @@ from regression import *
 from squareError import *
 from normalEquationsRegression import *
 from vandermondeInterpolation import *
+from splineInterpolation import *
 
 
-dataset = [(-2, 2), (1, -1), (3, 1)]
+dataset = [(-2, 2.5), (0, 1), (1, 2.5), (2, 5.7), (3, 11.6)]
 
 
 def model(x, a0, a1):
-    return a0 + a1 * sin(x)
+    return a0 + (a1 * (x ** 2))
 
 
 def linearization_function(y):
-    return y ** -1
+    return log(y)
 
 
-print(square_error(dataset, model, -0.5, 1.7))
+a0, a1 = least_square_fitting_coefficients(
+    linearize_dataset(dataset, linearization_function), model)
+
+a0 = e ** a0
+
+print(root_mean_square_error(dataset, model, a0, a1))
 
 
 # dataset = [(0 / 24, 15),
